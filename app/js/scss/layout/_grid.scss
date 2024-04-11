@@ -1,10 +1,15 @@
+@use "../util";
+
 .grid {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
+  // max-width: 1000px;
   gap: 40px;
+  width: min(100% - 40px, 1000px);
+  margin-inline: auto;
 
-  @media (width >= 900px) {
+  @include util.breakpoint(tablet, up) {
     grid-template-columns: 2fr 1fr;
     grid-template-rows: auto;
   }
@@ -16,9 +21,24 @@
 
   &__main {
     background-color: hsl(240, 100%, 27%);
+
+    @include util.breakpoint(tablet, up) {
+      background-color: hsl(120, 100%, 17%);
+    }
+
+    @include util.breakpoint(desktop, up) {
+      background-color: hsl(39, 100%, 31%);
+    }
   }
 
   &__sidebar {
     background-color: hsl(300, 100%, 23%);
+    @include util.breakpoint(tablet, down) {
+      text-align: center;
+    }
+
+    @include util.breakpoint(mobile, down) {
+      text-align: right;
+    }
   }
 }
