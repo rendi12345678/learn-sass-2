@@ -2,11 +2,11 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr;
   grid-template-rows: auto auto;
+  grid-template-columns: 1fr;
   // max-width: 1000px;
-  gap: 40px;
-  width: min(100% - 40px, 1000px);
+  gap: util.rem(40);
+  width: min(100% - util.rem(40), util.rem(1000));
   margin-inline: auto;
 
   @include util.breakpoint(tablet, up) {
@@ -16,23 +16,22 @@
 
   &__main,
   &__sidebar {
-    padding: 40px;
+    padding: util.rem(40);
   }
 
   &__main {
-    background-color: hsl(240, 100%, 27%);
+    // background-color: hsl(240, 100%, 27%);
 
-    @include util.breakpoint(tablet, up) {
-      background-color: hsl(120, 100%, 17%);
-    }
+    // @include util.breakpoint(tablet, up) {
+    //   background-color: hsl(120, 100%, 17%);
+    // }
 
-    @include util.breakpoint(desktop, up) {
-      background-color: hsl(39, 100%, 31%);
-    }
+    // @include util.breakpoint(desktop, up) {
+    //   background-color: hsl(39, 100%, 31%);
+    // }
   }
 
   &__sidebar {
-    background-color: hsl(300, 100%, 23%);
     @include util.breakpoint(tablet, down) {
       text-align: center;
     }
@@ -40,5 +39,9 @@
     @include util.breakpoint(mobile, down) {
       text-align: right;
     }
+  }
+
+  &__widget {
+    padding: util.rem(16);
   }
 }

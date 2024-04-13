@@ -1,8 +1,10 @@
+@use "functions" as f;
+
 // 700px, 900px, 1440px
 $breakpoints: (
-  "mobile": 700px,
-  "tablet": 900px,
-  "desktop": 1440px,
+  "mobile": f.em(700),
+  "tablet": f.em(900),
+  "desktop": f.em(1440),
 );
 
 @mixin breakpoint($size, $status) {
